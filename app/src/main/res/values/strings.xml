@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LoginScreen</string>
+    <string name="hello">Hello, World. My name is Elnur and i want to be a great android developer and make cool android apps</string>
+    <string name="agreement_fulltext">By pressing next button you confirm the agreement and privacy policy</string>
+    <string name="confidential_info">agreement</string>
+    <string name="privacy_policy">privacy policy</string>
+</resources>
