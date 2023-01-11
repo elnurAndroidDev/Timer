@@ -5,4 +5,9 @@
     <string name="agreement_fulltext">Нажимая на кнопку вы подтверждаете что ознакомились с условиями использования и политикой конфиденциальности</string>
     <string name="confidential_info">условиями использования</string>
     <string name="privacy_policy">политикой конфиденциальности</string>
+    <string name="contentDescription">Солнце</string>
+    <string name="login">Логин</string>
+    <string name="invalid_email">Адрес e-mail не валиден</string>
+    <string name="valid_email">Адрес e-mail валиден</string>
+    <string name="password">Пароль</string>
 </resources>
