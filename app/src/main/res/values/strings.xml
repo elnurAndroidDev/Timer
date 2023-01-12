@@ -1,12 +1,15 @@
 <resources>
     <string name="app_name">LoginScreen</string>
     <string name="hello">Hello, World. My name is Elnur and i want to be a great android developer and make cool android apps</string>
-    <string name="agreement_fulltext">By pressing next button you confirm the agreement and privacy policy</string>
-    <string name="confidential_info">agreement</string>
+    <string name="agreement_fulltext">I agree with terms of use and privacy policy</string>
+    <string name="terms_of_use">terms of use</string>
     <string name="privacy_policy">privacy policy</string>
     <string name="contentDescription">The Sun</string>
     <string name="login">Login</string>
     <string name="invalid_email">E-mail address is invalid</string>
     <string name="valid_email">E-mail address is valid</string>
     <string name="password">Password</string>
+    <string name="attention">Attention</string>
+    <string name="service_is_unavailable">Service is unavailable</string>
+    <string name="cancel_button">Cancel button</string>
 </resources>

@@ -2,12 +2,15 @@
 <resources>
     <string name="app_name">LoginScreen</string>
     <string name="hello">Привет, Мир. Я - Исаев Елнур и я хочу стать великим программистом и создавать крутые программы на андроид</string>
-    <string name="agreement_fulltext">Нажимая на кнопку вы подтверждаете что ознакомились с условиями использования и политикой конфиденциальности</string>
-    <string name="confidential_info">условиями использования</string>
-    <string name="privacy_policy">политикой конфиденциальности</string>
+    <string name="agreement_fulltext">Я принимаю условия использования и политику конфиденциальности</string>
+    <string name="terms_of_use">условия использования</string>
+    <string name="privacy_policy">политику конфиденциальности</string>
     <string name="contentDescription">Солнце</string>
     <string name="login">Логин</string>
     <string name="invalid_email">Адрес e-mail не валиден</string>
     <string name="valid_email">Адрес e-mail валиден</string>
     <string name="password">Пароль</string>
+    <string name="attention">Внимание</string>
+    <string name="service_is_unavailable">Сервис недоступен</string>
+    <string name="cancel_button">Крестик для закрытия</string>
 </resources>
