@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val textInputLayout = findViewById<TextInputLayout>(R.id.emailInputLayout)
+        val textInputLayout =  findViewById<TextInputLayout>(R.id.emailInputLayout)
         val editTextView = textInputLayout.editText as TextInputEditText
         editTextView.addTextChangedListener(object : SimpleTextWatcher() {
             override fun afterTextChanged(s: Editable?) {
