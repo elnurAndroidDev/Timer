@@ -11,6 +11,7 @@ import android.text.TextPaint
 import android.text.TextWatcher
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
@@ -26,6 +27,25 @@ import com.google.android.material.textfield.TextInputLayout
 
 class MainActivity : AppCompatActivity() {
 
+    private companion object {
+        private const val TAG = "MyLog"
+    }
+
+    private lateinit var textInputLayout: TextInputLayout
+    private val textWatcher = object : SimpleTextWatcher() {
+        override fun afterTextChanged(s: Editable?) {
+            val isValid = android.util.Patterns.EMAIL_ADDRESS.matcher(s.toString()).matches()
+            textInputLayout.isErrorEnabled = !isValid
+            val error = if (isValid) "" else getString(R.string.invalid_email)
+            textInputLayout.error = error
+            if (isValid) Toast.makeText(
+                this@MainActivity,
+                getString(R.string.valid_email),
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -33,21 +53,9 @@ class MainActivity : AppCompatActivity() {
         val contentLayout = findViewById<LinearLayout>(R.id.contentLayout)
         val progressBar = findViewById<ProgressBar>(R.id.progressBar)
 
-        val textInputLayout = findViewById<TextInputLayout>(R.id.emailInputLayout)
+        textInputLayout = findViewById<TextInputLayout>(R.id.emailInputLayout)
         val emailTextView = textInputLayout.editText as TextInputEditText
-        emailTextView.addTextChangedListener(object : SimpleTextWatcher() {
-            override fun afterTextChanged(s: Editable?) {
-                val isValid = android.util.Patterns.EMAIL_ADDRESS.matcher(s.toString()).matches()
-                textInputLayout.isErrorEnabled = !isValid
-                val error = if (isValid) "" else getString(R.string.invalid_email)
-                textInputLayout.error = error
-                if (isValid) Toast.makeText(
-                    this@MainActivity,
-                    getString(R.string.valid_email),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        })
+        emailTextView.addTextChangedListener(textWatcher)
 
         val agreementTextView: TextView = findViewById(R.id.agreementTextView)
 
@@ -106,6 +114,31 @@ class MainActivity : AppCompatActivity() {
                 }, 3000)
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy")
     }
 }
 
