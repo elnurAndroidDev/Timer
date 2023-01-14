@@ -35,11 +35,13 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "onResume")
+        viewModel.resumeCounting()
     }
 
     override fun onPause() {
         super.onPause()
         Log.d(TAG, "onPause")
+        viewModel.pauseCounting()
     }
 
     override fun onStop() {
