@@ -2,17 +2,21 @@ package com.isayevapps.projectbylectures_easycoderu
 
 import java.util.*
 
-class Model(private val dataSource: DataSource) {
+class Model(
+    private val dataSource: DataSource,
+    private val timeTicker: TimeTicker
+) {
 
-    private var callback: TextCallback? = null
-    private var timer: Timer? = null
-    private val timerTask
-        get() = object : TimerTask() {
-            override fun run() {
+    private val tickerCallback
+        get() = object : TimeTicker.Callback {
+            override fun tick() {
                 count++
                 callback?.updateText(count.toString())
             }
         }
+
+    private var callback: TextCallback? = null
+    private var timer: Timer? = null
 
     private var count = -1
 
@@ -21,13 +25,12 @@ class Model(private val dataSource: DataSource) {
         if (count < 0)
             count = dataSource.getInt(COUNTER_KEY)
         timer = Timer()
-        timer?.scheduleAtFixedRate(timerTask, 0, 1000)
+        timeTicker.start(tickerCallback)
     }
 
     fun stop() {
         dataSource.saveInt(COUNTER_KEY, count)
-        timer?.cancel()
-        timer = null
+        timeTicker.stop()
     }
 
     companion object {
